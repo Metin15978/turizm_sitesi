@@ -1,0 +1,11 @@
+{% load static %}
+{% for i in tours %}
+<div id="page_caption" class="hasbg parallax fullscreen notransparent" data-image="{% if i.image %}{{ i.image.image.url }}{% else %}{% static 'default-image.jpg' %}{% endif %}" data-width="1600" data-height="1200">
+  <div class="page_title_wrapper">
+    <!-- <div class="tour_country_subheader">Slovenia, Hungary, Czech</div> -->
+    <br class="clear" />
+    <h1>{{ i.city_list }}</h1> <!-- Şehirler burada yan yana görüntülenecek -->
+  </div>
+  <div class="parallax_overlay_header"></div>
+</div>
+{% endfor %}

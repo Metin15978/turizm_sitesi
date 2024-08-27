@@ -1,0 +1,76 @@
+{% load static %}
+<div class="inner">
+  <div class="inner_wrapper">
+    <div id="page_main_content" class="sidebar_content full_width">
+      <div class="page_content_wrapper">
+        <form id="tour_search_form" name="tour_search_form" method="get" action="{% url 'tour-classic-fullwidth' %}">
+          <div class="tour_search_wrapper">
+            <div class="one_fourth">
+              <label for="keyword">Destination</label>
+              <input id="keyword" name="keyword" type="text" placeholder="City, region or keywords" />
+            </div>
+            <!-- Date kısmı şimdilik yorum satırına alındı -->
+            <div class="one_fourth">
+              <label for="budget">Max Budgets</label>
+              <input id="budget" name="budget" type="text" placeholder="USD EX. 100" />
+            </div>
+            <div class="one_fourth last">
+              <input id="tour_search_btn" type="submit" value="Search" />
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div id="portfolio_filter_wrapper" class="three_cols gallery fullwidth section content clearfix">
+
+        <!-- Tur bilgi kartlarını döndürdüm -->
+        {% for tour in tours %}
+        <div class="element portfolio3filter_wrapper" style="padding-left:13px; margin-right:-10px;">
+          <div class="one_third gallery3 filterable gallery_type animated2" data-id="post-{{ tour.id }}">
+            <a href="{% url 'east-europe' tour.slug %}">
+              <div style="background-image: url('{{ tour.image.image.url }}'); width: 418px; height: 280px; background-size: cover; background-position: center;"></div>
+            </a>
+
+            <div class="thumb_content fullwidth classic" style="width:440px;">
+              <div class="thumb_title">
+                <div class="tour_country">{{ tour.name }}</div>
+                <a href="{% url 'east-europe' tour.slug %}"><h3>{{ tour.name }}</h3></a>
+              </div>
+              <div class="thumb_meta">
+                <div class="tour_days">day {{ tour.day }}</div>
+
+                {% if tour.discount_price %}
+                <div class="tour_price">
+                  <span style="text-decoration: line-through;">${{ tour.price }}</span>
+                  <span> ${{ tour.discount_price }}</span>
+                </div>
+                {% else %}
+                <div class="tour_price">${{ tour.price }}</div>
+                {% endif %}
+              </div>
+
+              <br class="clear" />
+
+              <div class="tour_excerpt">
+                {% if tour.item.all %}
+                  <i class="fa fa-map-marker"></i>&nbsp;{{ tour.item.all.0.hotel.all.0.name }}
+                  <br />
+                  <i class="fa fa-map-marker"></i>&nbsp;{{ tour.item.all.0.vehicle_type.name }}
+                  <br />
+                  <i class="fa fa-map-marker"></i>&nbsp;{{ tour.item.all.0.activity.all.0.name }}
+                  <br />
+                  <i class="fa fa-map-marker"></i>&nbsp;{{ tour.item.all.0.museum.all.0.name }}
+                  <br />
+                {% else %}
+                  <i class="fa fa-map-marker"></i>&nbsp;No details available
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        <!-- Tur bilgi kartlarını döndürdüm -->
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+{% load static %}
+
+{% for i in tours %}
+ 
+<div class="post_header">
+  <p>{{ i.Tour_detail.details }}</p>
+  <!-- <blockquote>
+    <p>Be who you are and say what you feel, because those who mind don&#8217;t matter, and those who matter don&#8217;t
+      mind.</p>
+  </blockquote> -->
+  <!-- <p>Sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus Lorem ipsum dosectetur adipisicing elit at leo
+    dignissim congue. Mauris elementum accumsan leo vel tempor. Aliquam et elit eu nunc rhoncus viverra quis at felis et
+    netus et malesuada fames ac turpis egestas. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+    penatibus et magnis dis parturient montes</p> -->
+
+  <div class="post_excerpt post_tag" style="text-align:left">
+    <a href="#" rel="tag">blog</a>, <a href="#" rel="tag">Design</a>, <a href="#" rel="tag">portrait</a>, <a href="#"
+      rel="tag">street photography</a> <i class="fa fa-tags"></i>
+  </div>
+
+  <a href="#" class="comment_counter"><i class="fa fa-comments"></i><span>{{ comment_count }}</span></a>
+
+  <a href="javascript:;" class="post_share" data-share="share_post_2720"><i class="fa fa-share-alt"></i></a>
+  <div id="share_post_2720" class="social_share_wrapper hidden post_list">
+    <ul>
+      <li>
+        <a class="tooltip" title="Share On Facebook" target="_blank" href="#"><i
+            class="fa fa-facebook marginright"></i></a>
+      </li>
+      <li>
+        <a class="tooltip" title="Share On Twitter" target="_blank" href="#"><i
+            class="fa fa-twitter marginright"></i></a>
+      </li>
+      <li>
+        <a class="tooltip" title="Share On Pinterest" target="_blank" href="#"><i
+            class="fa fa-pinterest marginright"></i></a>
+      </li>
+      <li>
+        <a class="tooltip" title="Share On Google+" target="_blank" href="#"><i
+            class="fa fa-google-plus marginright"></i></a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+{% endfor %}

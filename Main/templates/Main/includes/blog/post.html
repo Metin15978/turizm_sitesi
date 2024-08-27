@@ -1,0 +1,33 @@
+{% load static %}
+
+
+{% for i in items %}
+
+<div id="post-2720"
+  class="post-2720 post type-post status-publish format-standard has-post-thumbnail hentry category-business category-wordpress tag-blog tag-design tag-portrait-2 tag-street-photography-2">
+  <div class="post_wrapper grid_layout">
+    <div class="post_img small static">
+      <a href="{% url 'standard-blog-post-with-image' i.slug %}"><img src="{{ i.image.image.url }}" alt=""
+          class="" /></a>
+    </div>
+
+    <div class="blog_grid_content">
+      <div class="post_header grid">
+        <h6><a href="{% url 'standard-blog-post-with-image' i.Tour_detail.slug %}"
+            title="Standard Blog Post With Image">{{ i.name }}</a></h6>
+        <div class="post_detail">{{ i.created_date }}</div>
+
+        <br class="clear" />
+        <p>{{ i.Tour_detail.details}}</p>
+      </div>
+
+      <a href="{% url 'standard-blog-post-with-image' i.Tour_detail.slug %}" class="comment_counter"><i
+          class="fa fa-comments"></i><span>{{ i.comment_count }}</span></a>
+      <a class="readmore" href="{% url 'standard-blog-post-with-image' i.Tour_detail.slug %}">Read More<i
+          class="fa fa-angle-right"></i></a>
+      <br class="clear" />
+    </div>
+  </div>
+</div>
+
+{% endfor %}

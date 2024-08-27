@@ -1,0 +1,35 @@
+{% load static %}
+<div class="page_content_wrapper full_width" style="text-align:center">
+  <h2 class="ppb_title">En İyi Teklifler</h2>
+  <div class="page_caption_desc pb20">En iyi promosyon turlarımızı keşfedin</div>
+  <div class="portfolio_filter_wrapper three_cols fullwidth shortcode gallery section content clearfix">
+
+    {% for i in discounted_tours %}
+    <div class="element portfolio3filter_wrapper " style="margin-left:10px;  min-height:320px;">
+      <div  class="one_third gallery3 filterable gallery_type animated1 " style="min-height:320px;">
+        <a href="{% url 'east-europe' i.slug %}" ><img style="min-height:320px;" src="{{ i.image.image.url }}" alt="{{ i.name }}" /></a>
+        <a href="{% url 'east-europe' i.slug %}" class="portanchor">
+          <div class="thumb_content fullwidth">
+            <div class="thumb_title">
+              <div class="tour_country">{{ i.name }}</div>
+              <h3>{{ i.Tour_detail.location }}</h3>
+            </div>
+            <div class="thumb_meta">
+              <div class="tour_days">{{ i.day }} gün</div>
+              {% if i.discount_price %}
+                <div class="tour_price">
+                  <span style="text-decoration: line-through; color: rgb(173, 173, 173);">${{ i.price|floatformat:2 }}</span>
+                  <span style=" color: white;"> ${{ i.discount_price|floatformat:2 }}</span>
+                </div>
+              {% else %}
+                <div class="tour_price">${{ i.price|floatformat:2 }}</div>
+              {% endif %}
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+</div>

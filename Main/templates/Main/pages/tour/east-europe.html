@@ -1,0 +1,33 @@
+{% extends 'Main/pages/base/base.html' %}
+
+<body data-rsssl="1" class="home page-template page-template-page_f page-template-page_f-php page page-id-3093 woocommerce-no-js">
+  <input type="hidden" id="pp_enable_reflection" name="pp_enable_reflection" value="" />
+  <input type="hidden" id="pp_enable_right_click" name="pp_enable_right_click" value="" />
+  <input type="hidden" id="pp_enable_dragging" name="pp_enable_dragging" value="" />
+  <input type="hidden" id="pp_gallery_auto_info" name="pp_gallery_auto_info" value="" />
+  <input type="hidden" id="pp_image_path" name="pp_image_path" value="images/" />
+  <input type="hidden" id="pp_homepage_url" name="pp_homepage_url" value="index.html" />
+  <input type="hidden" id="pp_blog_ajax_search" name="pp_blog_ajax_search" value="" />
+  <input type="hidden" id="pp_fixed_menu" name="pp_fixed_menu" value="" />
+  <input type="hidden" id="pp_topbar" name="pp_topbar" value="" />
+
+  <input type="hidden" id="pp_footer_style" name="pp_footer_style" value="4" />
+
+  <!-- Begin template wrapper -->
+  <div id="wrapper">
+    {% block content %}
+      {% include 'main/includes/tour/tour-parallax.html' %}
+
+      <!-- Begin content -->
+      <div id="page_content_wrapper" class="hasbg fullwidth fullscreen">
+        <div class="inner">
+          <!-- Begid Main content -->
+          {% include 'main/includes/tour/city-description.html' %}
+        </div>
+        <!-- End main content -->
+      </div>
+
+      {% include 'main/includes/tour/tour-book.html' %}
+    {% endblock %}
+  </div>
+</body>

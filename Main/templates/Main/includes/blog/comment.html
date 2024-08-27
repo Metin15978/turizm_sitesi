@@ -1,0 +1,25 @@
+{% load static %}
+
+{% for i in comments %}
+  
+<div class="comment" id="comment-4">
+  <div class="gravatar">
+    <img src="{% static 'upload/avatar.jpeg' %}" class="avatar avatar-60 photo" height="60" width="60" />
+  </div>
+
+  <div class="right">
+    <h6>{{ i.name }}</h6>
+    <br class="clear" />
+
+    <div class="comment_date">{{ i.created_date }}</div>
+    <!-- <a rel="nofollow" class="comment-reply-link" href="standard-blog-post-with-image.html" data-commentid="{{ comment.id }}" data-postid="{{ comment.item.id }}" data-belowelement="comment-{{ comment.id }}" data-respondelement="respond" aria-label="Reply to {{ comment.user.username }}">Reply</a> -->
+
+    <br class="clear" />
+    <p>{{ i.content }}</p>
+  </div>
+  <br class="clear" />
+  <hr />
+  <div style="height:20px"></div>
+</div>
+
+{% endfor %}

@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'Login/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'Login/css/fontawesome-all.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'Login/css/iofrm-style.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'Login/css/iofrm-theme18.css' %}" />
+  </head>
+  <body>
+    <div class="form-body without-side">
+      <div class="website-logo">
+        <a id="custom_logo_transparent" class="logo_wrapper default" href="{% url 'base' %}"><img src="{% static 'images/logo@2x.png' %}" alt="" width="69" height="33" /></a>
+      </div>
+      <div class="row">
+        <div class="img-holder">
+          <div class="bg"></div>
+          <div class="info-holder">
+            <img src="{% static 'images/Travel.jpg' %}" alt="" />
+          </div>
+        </div>
+        <div class="form-holder">
+          <div class="form-content">
+            <div class="form-items">
+              <h3>Login to account</h3>
+              <p>Access to the most powerfull tool in the entire design and web industry.</p>
+
+              <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Login</button>
+              </form>
+
+              <div class="other-links">
+                <div class="text">Or login with</div>
+                <a href="#"><i class="fab fa-facebook-f"></i>Facebook</a><a href="#"><i class="fab fa-google"></i>Google</a><a href="#"><i class="fab fa-linkedin-in"></i>Linkedin</a>
+              </div>
+              <div class="page-links">
+                <a href="{% url 'register' %}">Register new account</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+  </body>
+</html>

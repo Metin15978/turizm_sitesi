@@ -1,0 +1,97 @@
+{% load static %}
+
+{% for tour_item in tours %}
+<div class="sidebar_content full_width pt60">
+  <div class="page_content_wrapper">
+    <div style="text-align:center">
+      <h2 class="ppb_title">{{ tour_item.Tour_detail.tour_program_title }}</h2>
+      <div class="page_caption_desc">{{ tour_item.Tour_detail.tour_program_mini_title }}</div>
+    </div>
+    <p>{{ tour_item.Tour_detail.details }}</p>
+
+    <iframe src="http://player.vimeo.com/video/107469289?title=0&byline=0&portrait=0&color=ffffff" width="960"
+      height="540" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+    <br />
+    <div style="text-align:center" class="pt60">
+      <h2 class="ppb_title">tur programı</h2>
+      <div class="page_caption_desc">{{ tour_item.Tour_detail.name }}</div>
+    </div>
+    {% for item in tour_item.item.all %}
+      <div class="tour_program">
+        <div class="tour_program_place">Day {{ item.start_day }} - {{ item.end_day }}</div>
+        <div class="tour_program_place">{{ item.location }}</div>
+        <div class="tour_program_content">{{ item.content }}</div>
+      </div>
+    {% endfor %}
+
+    <div class="social_share_wrapper pb30">
+      <ul>
+        <li>
+          <a class="tooltip" title="Share On Facebook" target="_blank" href="#"><i
+              class="fa fa-facebook marginright"></i></a>
+        </li>
+        <li>
+          <a class="tooltip" title="Share On Twitter" target="_blank" href="#"><i
+              class="fa fa-twitter marginright"></i></a>
+        </li>
+        <li>
+          <a class="tooltip" title="Share On Pinterest" target="_blank" href="#"><i
+              class="fa fa-pinterest marginright"></i></a>
+        </li>
+        <li>
+          <a class="tooltip" title="Share On Google+" target="_blank" href="#"><i
+              class="fa fa-google-plus marginright"></i></a>
+        </li>
+      </ul>
+    </div>
+
+    <div id="portfolio_filter_wrapper" class="three_cols gallery tour_single fullwidth section content clearfix">
+      {% for image in tour_item.item_image.all %}
+        <div class="element portfolio3filter_wrapper">
+          <div class="one_third gallery3 filterable gallery_type animated1">
+            <a href="{{ image.image.url }}" title="{{ image.title }}" class="fancy-gallery">
+              <img src="{{ image.image.url }}" alt="{{ image.title }}" />
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="tour_call_to_action parallax" style="background-image:url('{{ tour_item.image.url }}');">
+      <div class="parallax_overlay_header tour"></div>
+      <div class="tour_call_to_action_box">
+        <div class="tour_call_to_action_price">
+          <span class="tour_discount_price">${{ tour_item.price }}</span>
+        </div>
+        <div class="tour_call_to_action_book">Book This Tour</div>
+        <a id="call_to_action_tour_book_btn" class="button">Book Now</a>
+      </div>
+    </div>
+
+    <div class="tour_meta_wrapper toaction">
+      <div class="page_content_wrapper">
+        <div class="one_fourth">
+          <div class="tour_meta_title">Date</div>
+          <div class="tour_meta_value"></div>
+        </div>
+        <div class="one_fourth">
+          <div class="tour_meta_title">Duration</div>
+          <div class="tour_meta_value">{{ tour_item.day }}</div>
+        </div>
+        <div class="one_fourth">
+          <div class="tour_meta_title">Price</div>
+          <div class="tour_meta_value">
+            <span class="tour_discount_price">${{ tour_item.price }}</span>
+          </div>
+        </div>
+        <div class="one_fourth last">
+          <div class="tour_meta_title">Availability</div>
+          <div class="tour_meta_value">sonsuz</div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+{% endfor %}

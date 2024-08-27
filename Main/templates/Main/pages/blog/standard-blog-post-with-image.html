@@ -1,0 +1,119 @@
+{% extends 'Main/pages/base/base.html' %}
+{% load static %}
+
+<body data-rsssl="1" class="home page-template page-template-page_f page-template-page_f-php page page-id-3093 woocommerce-no-js">
+  <input type="hidden" id="pp_enable_reflection" name="pp_enable_reflection" value="" />
+  <input type="hidden" id="pp_enable_right_click" name="pp_enable_right_click" value="" />
+  <input type="hidden" id="pp_enable_dragging" name="pp_enable_dragging" value="" />
+  <input type="hidden" id="pp_gallery_auto_info" name="pp_gallery_auto_info" value="" />
+  <input type="hidden" id="pp_image_path" name="pp_image_path" value="images/" />
+  <input type="hidden" id="pp_homepage_url" name="pp_homepage_url" value="index.html" />
+  <input type="hidden" id="pp_blog_ajax_search" name="pp_blog_ajax_search" value="" />
+  <input type="hidden" id="pp_fixed_menu" name="pp_fixed_menu" value="" />
+  <input type="hidden" id="pp_topbar" name="pp_topbar" value="" />
+
+  <input type="hidden" id="pp_footer_style" name="pp_footer_style" value="4" />
+
+  <!-- Begin template wrapper -->
+  <div id="wrapper">
+    {% block content %}
+      {% include 'Main/includes/blog/parallax.html' %}
+
+      <div id="page_content_wrapper" class="hasbg notransparent">
+        <div class="inner">
+          <!-- Begin main content -->
+          <div class="inner_wrapper pt40">
+            <div class="sidebar_content">
+              <!-- Begin each blog post -->
+              <div id="post-2720" class="post-2720 post type-post status-publish format-standard has-post-thumbnail hentry category-business category-wordpress tag-blog tag-design tag-portrait-2 tag-street-photography-2">
+                <div class="post_wrapper">
+                  {% include 'Main/includes/blog/post-content.html' %}
+                  {% for i in tours %}
+                            
+                  <div class="post_content_wrapper">
+                    <div class="post_img static">
+                      <img src="{{ i.image.image.url  }}" alt="" class=""  />
+                    </div>
+                  </div>
+                  
+                  {% endfor %}
+                  
+
+
+                </div>
+              </div>
+              <!-- End each blog post -->
+              <br class="clear" />
+              <br />
+              <hr />
+              <br />
+              <br />
+
+              <br />
+              <br />
+              <br />
+              <h5 class="widgettitle"><span>You might also like</span></h5>
+              <br class="clear" />
+              <div class="one related">
+                <div class="one_third">
+                  <div class="post_wrapper grid_layout">
+                    {% include 'Main/includes/blog/preveous-post.html' %}
+                  </div>
+                </div>
+                <div class="one_third">
+                  {% include 'Main/includes/blog/middle-post.html' %}
+                </div>
+                <div class="one_third last">
+                  {% include 'Main/includes/blog/last-post.html' %}
+                </div>
+              </div>
+              <br class="clear" />
+              <br />
+
+              <hr />
+              <br />
+              <div id="comments">
+                <h5 class="widgettitle">{{ comment_count }} Comments</h5>
+                <br />
+
+                <!-- #comment-## -->
+                {% include 'Main/includes/blog/comment.html' %}
+
+                <!-- #comment-## -->
+              </div>
+
+              <!-- End of thread -->
+              <div style="height:10px"></div>
+
+              {% if user.is_authenticated %}
+    
+              <div id="respond" class="comment-respond pb40">
+                <h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="index.htm#respond" style="display:none;">Cancel reply</a></small></h3>
+                {% include 'Main/includes/blog/comment-sending.html' %}
+              </div>
+              {% else %}
+
+              <h3>Please Login To Leave A Comment</h3>
+
+              {% endif %}
+
+              <!-- #respond -->
+            </div>
+
+            <div class="sidebar_wrapper">
+              <div class="sidebar_top"></div>
+              {% include 'Main/includes/blog/side-bar.html' %}
+
+              <br class="clear" />
+
+              <div class="sidebar_bottom"></div>
+            </div>
+          </div>
+          <!-- End main content -->
+        </div>
+
+        <br class="clear" />
+      </div>
+    {% endblock %}
+  </div>
+</body>

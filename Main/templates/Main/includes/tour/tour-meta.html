@@ -1,0 +1,29 @@
+{% for i in tours %}
+
+<div class="tour_meta_wrapper">
+  <div class="page_content_wrapper">
+    <div class="one_fifth">
+      <div class="tour_meta_title">Date</div>
+      <div class="tour_meta_value">{{ i.start_date }} - {{ i.end_date }}</div>
+    </div>
+    <div class="one_fifth">
+      <div class="tour_meta_title">Duration</div>
+      <div class="tour_meta_value">{{ i.day }}</div>
+    </div>
+    <div class="one_fifth">
+      <div class="tour_meta_title">Price</div>
+      <div class="tour_meta_value">
+        <!-- <span class="tour_normal_price">$4000</span> -->
+        <span class="tour_discount_price">${{ i.price }}</span>
+      </div>
+    </div>
+    <div class="one_fifth">
+      <div class="tour_meta_title">Availability</div>
+      <div class="tour_meta_value">30</div>
+    </div>
+    <div class="one_fifth last">
+      <a id="tour_book_btn" class="button center">Book Now</a>
+    </div>
+  </div>
+</div>
+{% endfor %}

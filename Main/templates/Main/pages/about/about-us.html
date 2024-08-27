@@ -1,0 +1,52 @@
+{% extends 'Main/pages/base/base.html' %}
+{% load static %}
+<body data-rsssl="1" class="home page-template page-template-page_f page-template-page_f-php page page-id-3093 woocommerce-no-js">
+  <input type="hidden" id="pp_enable_reflection" name="pp_enable_reflection" value="" />
+  <input type="hidden" id="pp_enable_right_click" name="pp_enable_right_click" value="" />
+  <input type="hidden" id="pp_enable_dragging" name="pp_enable_dragging" value="" />
+  <input type="hidden" id="pp_gallery_auto_info" name="pp_gallery_auto_info" value="" />
+  <input type="hidden" id="pp_image_path" name="pp_image_path" value="images/" />
+  <input type="hidden" id="pp_homepage_url" name="pp_homepage_url" value="index.html" />
+  <input type="hidden" id="pp_blog_ajax_search" name="pp_blog_ajax_search" value="" />
+  <input type="hidden" id="pp_fixed_menu" name="pp_fixed_menu" value="" />
+  <input type="hidden" id="pp_topbar" name="pp_topbar" value="" />
+
+  <input type="hidden" id="pp_footer_style" name="pp_footer_style" value="4" />
+
+  <!-- Begin template wrapper -->
+  <div id="wrapper">
+    {% block content %}
+      {% include 'main/includes/about/parallax.html' %}
+
+      <div class="ppb_wrapper hasbg">
+        <div class="one withsmallpadding">
+          <div class="page_content_wrapper">
+            {% comment %}! withsmallpadding.html{% endcomment %}
+            {% include 'main/includes/about/withsmallpadding.html' %}
+            <p></p>
+          </div>
+        </div>
+        <div class="one withpadding ppb_team" style="background:#f3f3f3;">
+          {% comment %}!team.html{% endcomment %}
+          {% include 'main/includes/about/team.html' %}
+        </div>
+        <div class="one withsmallpadding withbg parallax" data-image="upload/1600x1200-21.jpg" data-width="1600" data-height="1200">
+          {% comment %}!choose.html{% endcomment %}
+          {% include 'main/includes/about/choose.html' %}
+        </div>
+        <div class="one withsmallpadding" style="background:#f3f3f3;">
+          {% comment %}!numbers.html{% endcomment %}
+          {% include 'main/includes/about/numbers.html' %}
+        </div>
+        <div class="one withsmallpadding">
+          {% comment %}!customers-says.html{% endcomment %}
+          {% include 'main/includes/about/customer-says.html' %}
+        </div>
+        <div class="one withsmallpadding withbg" style="background-image:url({% static 'img/sydney.webp' %});background-size:cover;margin-top:-1px;">
+          {% comment %}!news-update.html{% endcomment %}
+          {% include 'Main/includes/base/news-update.html' %}
+        </div>
+      </div>
+    {% endblock %}
+  </div>
+</body>

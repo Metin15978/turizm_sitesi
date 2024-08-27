@@ -1,0 +1,28 @@
+{% load static %}
+
+{% for tour in tours %}
+  
+      {% for i in items %}
+      <div id="page_caption" class="hasbg parallax notransparent" data-image="{{ tour.image.image.url }}" data-width="1600" data-height="1200">
+      {% endfor %}
+
+      {% if tour.item.all %}
+      {% for item in tour.item.all %}
+          <div class="item-container">
+              <div id="page_caption" class="hasbg parallax notransparent" data-image="{{ item.item_image.image.url }}" data-width="1600" data-height="1200">
+                  <div class="page_title_wrapper">
+                      <h1>{{ tour.city_list }}</h1>
+                      <div id="crumbs">
+                          <a href="{% url 'east-europe' tour.slug %}">Home</a> / <span class="current">{{ tour.name }}</span>
+                      </div>
+                  </div>
+                  <div class="parallax_overlay_header"></div>
+              </div>
+          </div>
+      {% endfor %}
+  {% else %}
+      <p>No items available for this tour.</p>
+  {% endif %}
+</div>
+
+{% endfor %}

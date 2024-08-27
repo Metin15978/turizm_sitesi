@@ -1,0 +1,38 @@
+{% load static %}
+
+<div class="page_content_wrapper" style="text-align:center">
+  <h2 class="ppb_title">Our Team</h2>
+  <br />
+  <br />
+  <div style="text-align:center; display:flex;" class="team_wrapper">
+    {% for team in teams %}
+      <div class="one_fourth animated{{ forloop.counter }}">
+        <div class="post_img static team animate" style="margin-bottom:10px">
+          <img class="team_pic" src="{{ team.image.url }}" style="width:200px; height:150px;"  alt="{{ team.name }}"  />
+
+        </div>
+        <br class="clear" />
+        <div class="portfolio_desc team shortcode">
+          <h5>{{ team.name }}</h5>
+          <span class="portfolio_excerpt">{{ team.role }}</span>
+          <p>{{ team.content }}</p>
+          <ul class="social_wrapper team">
+            <li>
+              <a title="{{ team.name }} on Twitter" target="_blank" class="tooltip" href="//twitter.com/#"><i class="fa fa-twitter"></i></a>
+            </li>
+            <li>
+              <a title="{{ team.name }} on Facebook" target="_blank" class="tooltip" href="//facebook.com/#"><i class="fa fa-facebook"></i></a>
+            </li>
+            <li>
+              <a title="{{ team.name }} on Google+" target="_blank" class="tooltip" href="#"><i class="fa fa-google-plus"></i></a>
+            </li>
+            <li>
+              <a title="{{ team.name }} on Linkedin" target="_blank" class="tooltip" href="#"><i class="fa fa-linkedin"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    {% endfor %}
+    <br class="clear" />
+  </div>
+</div>
